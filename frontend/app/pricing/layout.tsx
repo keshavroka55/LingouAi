@@ -4,10 +4,10 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: {
     default: "Pricing — Plans for Everyone",
-    template: "%s | LinguoAI",
+    template: "%s | DetectorAI",
   },
   description:
-    "Transparent pricing for LinguoAI. Choose Starter, Professional, or Enterprise plans to unlock AI grammar, tone, style, detection, and collaboration features.",
+    "Transparent pricing for DetectorAI. Choose Starter, Professional, or Enterprise plans to unlock AI grammar, tone, style, detection, and collaboration features.",
   alternates: { canonical: "/pricing" },
 }
 

@@ -38,7 +38,7 @@ export default function HeroSection() {
                 </span>{" "}
                 using{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400">
-                  LinguoAI
+                  DetectorAI
                 </span>
               </h1>
 
@@ -46,7 +46,7 @@ export default function HeroSection() {
                 itemProp="description"
                 className="text-lg sm:text-xl text-gray-500 leading-relaxed max-w-lg"
               >
-                Transform your writing with AI. From essays to emails, LinguoAI
+                Transform your writing with AI. From essays to emails, DetectorAI
                 enhances grammar, tone, and clarity — helping you write with
                 confidence and precision.
               </p>
@@ -108,15 +108,15 @@ export default function HeroSection() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            name: "LinguoAI",
+            name: "DetectorAI",
             operatingSystem: "Web",
             applicationCategory: "WritingAssistant",
             description:
-              "LinguoAI is a premium AI writing assistant that improves grammar, tone, and clarity for essays, professional writing, and creative content.",
+              "DetectorAI is a premium AI writing assistant that improves grammar, tone, and clarity for essays, professional writing, and creative content.",
             image: "https://detectorai.me/logo.png",
             author: {
               "@type": "Organization",
-              name: "LinguoAI",
+              name: "DetectorAI",
               url: "https://detectorai.me",
             },
             offers: {

@@ -74,7 +74,7 @@ export default function SignupPage() {
       >
         <div className="bg-surface-light border border-surface rounded-xl shadow-lg p-8">
           <h1 className="text-3xl font-bold text-foreground mb-2">Create account</h1>
-          <p className="text-muted-foreground mb-8">Join LinguoAI to enhance your writing</p>
+          <p className="text-muted-foreground mb-8">Join DetectorAI to enhance your writing</p>
 
           <form onSubmit={handleSignup} className="space-y-4">
             <div>

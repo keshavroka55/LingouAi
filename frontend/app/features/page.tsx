@@ -65,7 +65,7 @@ export default function FeaturesPage() {
               Powerful Features for Better Writing
             </h1>
             <p className="text-xl text-foreground-muted max-w-2xl mx-auto">
-              Discover all the tools and features that make LinguoAI the best writing assistant for professionals.
+              Discover all the tools and features that make DetectorAI the best writing assistant for professionals.
             </p>
           </motion.div>
 

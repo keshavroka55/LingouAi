@@ -71,12 +71,12 @@ export default function SecurityPage() {
           >
             <h2 className="text-2xl font-bold text-foreground mb-6">Our Commitment</h2>
             <p className="text-foreground-muted leading-relaxed mb-4">
-              LinguoAI is committed to maintaining the highest standards of security and data protection. We believe
+              DetectorAI is committed to maintaining the highest standards of security and data protection. We believe
               that trust is fundamental to our relationship with our users, and we take this responsibility seriously.
             </p>
             <p className="text-foreground-muted leading-relaxed">
               For security concerns or to report a vulnerability, please contact our security team at
-              security@linguoai.com. We appreciate responsible disclosure and will work with you to resolve any issues
+              security@DetectorAI.com. We appreciate responsible disclosure and will work with you to resolve any issues
               promptly.
             </p>
           </motion.div>

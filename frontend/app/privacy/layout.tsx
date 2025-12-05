@@ -4,10 +4,10 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: {
     default: "Privacy Policy",
-    template: "%s | LinguoAI",
+    template: "%s | DetectorAI",
   },
   description:
-    "Read LinguoAI's privacy policy outlining data collection, usage, and user rights.",
+    "Read DetectorAI's privacy policy outlining data collection, usage, and user rights.",
   alternates: { canonical: "/privacy" },
 }
 

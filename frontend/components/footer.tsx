@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 to-fuchsia-500 text-transparent bg-clip-text">
-              LinguoAI
+              DetectorAI
             </h3>
             <p className="text-gray-600 mt-4 leading-relaxed">
               Empowering writers to create impactful content with AI-assisted clarity, tone, and creativity.
@@ -45,8 +45,8 @@ export default function Footer() {
             <h4 className="font-semibold text-gray-900 mb-4 tracking-wide">Connect</h4>
             <ul className="space-y-3 text-gray-600">
               <li>
-                <a href="mailto:hello@linguoai.com" className="hover:text-black transition-colors flex items-center gap-2">
-                  <Mail className="w-4 h-4" /> hello@linguoai.com
+                <a href="mailto:hello@DetectorAI.com" className="hover:text-black transition-colors flex items-center gap-2">
+                  <Mail className="w-4 h-4" /> hello@DetectorAI.com
                 </a>
               </li>
             </ul>
@@ -67,7 +67,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-500">
-          <p>© 2025 LinguoAI. All rights reserved.</p>
+          <p>© 2025 DetectorAI. All rights reserved.</p>
         </div>
       </div>
     </footer>

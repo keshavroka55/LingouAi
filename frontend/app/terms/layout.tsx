@@ -4,10 +4,10 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: {
     default: "Terms of Service",
-    template: "%s | LinguoAI",
+    template: "%s | DetectorAI",
   },
   description:
-    "LinguoAI Terms of Service. Understand user obligations, acceptable use, and legal conditions.",
+    "DetectorAI Terms of Service. Understand user obligations, acceptable use, and legal conditions.",
   alternates: { canonical: "/terms" },
 }
 

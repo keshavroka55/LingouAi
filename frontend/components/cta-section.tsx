@@ -39,7 +39,7 @@ export default function CTASection() {
           className="relative text-base sm:text-lg text-gray-400 max-w-xl mx-auto mb-8"
         >
           Join thousands of creators and professionals using{" "}
-          <span className="text-primary font-semibold">LinguoAI</span> to create clear, confident, and credible writing.
+          <span className="text-primary font-semibold">DetectorAI</span> to create clear, confident, and credible writing.
         </motion.p>
 
         {/* Buttons */}

@@ -3,11 +3,11 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: {
-    default: "About LinguoAI",
-    template: "%s | LinguoAI",
+    default: "About DetectorAI",
+    template: "%s | DetectorAI",
   },
   description:
-    "Discover the mission behind LinguoAI — helping people write clearly and confidently with AI.",
+    "Discover the mission behind DetectorAI — helping people write clearly and confidently with AI.",
   alternates: { canonical: "/about" },
 }
 

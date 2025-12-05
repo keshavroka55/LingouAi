@@ -36,7 +36,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">About LinguoAI</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">About DetectorAI</h1>
             <p className="text-xl text-foreground-muted max-w-2xl mx-auto">
               Revolutionizing writing with AI-powered intelligence.
             </p>
@@ -50,13 +50,13 @@ export default function AboutPage() {
           >
             <h2 className="text-2xl font-bold text-foreground mb-4">Our Story</h2>
             <p className="text-foreground-muted leading-relaxed mb-4">
-              LinguoAI was founded in 2024 with a simple vision: to make professional writing assistance accessible to
+              DetectorAI was founded in 2024 with a simple vision: to make professional writing assistance accessible to
               everyone. We believe that great writing isn't just about grammar—it's about clarity, impact, and
               connecting with your audience.
             </p>
             <p className="text-foreground-muted leading-relaxed">
               Our team of AI researchers, linguists, and product designers came together to build the most intelligent
-              writing assistant on the market. Today, LinguoAI helps thousands of writers, students, and professionals
+              writing assistant on the market. Today, DetectorAI helps thousands of writers, students, and professionals
               craft better content every day.
             </p>
           </motion.div>

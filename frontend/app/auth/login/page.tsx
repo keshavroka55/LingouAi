@@ -59,7 +59,7 @@ export default function LoginPage() {
       >
         <div className="bg-surface-light border border-surface rounded-xl shadow-lg p-8">
           <h1 className="text-3xl font-bold text-foreground mb-2">Welcome back</h1>
-          <p className="text-muted-foreground mb-8">Sign in to your LinguoAI account</p>
+          <p className="text-muted-foreground mb-8">Sign in to your DetectorAI account</p>
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>

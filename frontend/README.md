@@ -1,4 +1,4 @@
-# LinguoAI - Premium Writing Assistant
+# DetectorAI - Premium Writing Assistant
 
 A production-ready SaaS platform that provides AI-powered writing analysis, featuring user authentication, credit-based billing, advanced text analysis, and report generation.
 
@@ -32,7 +32,7 @@ A production-ready SaaS platform that provides AI-powered writing analysis, feat
 ## Project Structure
 
 \`\`\`
-linguoai/
+DetectorAI/
 ├── app/
 │   ├── layout.tsx
 │   ├── globals.css
@@ -84,8 +84,8 @@ linguoai/
 
 1. Clone the repository
 \`\`\`bash
-git clone https://github.com/yourusername/linguoai.git
-cd linguoai
+git clone https://github.com/yourusername/DetectorAI.git
+cd DetectorAI
 \`\`\`
 
 2. Install dependencies

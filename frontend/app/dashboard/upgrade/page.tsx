@@ -124,7 +124,7 @@ export default function UpgradePage() {
             <div>
               <p className="font-semibold text-foreground mb-2">Is there a free trial?</p>
               <p className="text-foreground-muted text-sm">
-                Yes! New users get 10 free analysis credits to try LinguoAI risk-free.
+                Yes! New users get 10 free analysis credits to try DetectorAI risk-free.
               </p>
             </div>
           </div>

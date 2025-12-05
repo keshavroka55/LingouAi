@@ -117,7 +117,7 @@ export default function ComingSoonPage() {
                     variants={itemVariants}
                     className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent"
                 >
-                    LinguoAI
+                    DetectorAI
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
@@ -163,7 +163,7 @@ export default function ComingSoonPage() {
                         variants={itemVariants}
                         className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed max-w-2xl mx-auto"
                     >
-                        We're crafting the ultimate AI-powered writing assistant. Get early access to LinguoAI and transform how you
+                        We're crafting the ultimate AI-powered writing assistant. Get early access to DetectorAI and transform how you
                         write.
                     </motion.p>
 

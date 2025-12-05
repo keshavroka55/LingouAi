@@ -60,7 +60,7 @@ export default function WaitlistPage() {
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-blue-700 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Zap className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-lg text-foreground">LinguoAI</span>
+              <span className="font-bold text-lg text-foreground">DetectorAI</span>
             </Link>
             <Link href="/" className="text-foreground-muted hover:text-foreground transition-colors">
               Back to Home
@@ -86,7 +86,7 @@ export default function WaitlistPage() {
           </h1>
 
           <p className="text-xl text-foreground-muted mb-12 max-w-2xl mx-auto leading-relaxed">
-            LinguoAI is launching soon. Get early access to the AI-powered writing assistant that transforms how teams
+            DetectorAI is launching soon. Get early access to the AI-powered writing assistant that transforms how teams
             write better content, faster.
           </p>
         </motion.div>
@@ -126,7 +126,7 @@ export default function WaitlistPage() {
                   )}
                 </button>
               </div>
-              <p className="text-xs text-foreground-muted">We'll notify you when LinguoAI launches. No spam, ever.</p>
+              <p className="text-xs text-foreground-muted">We'll notify you when DetectorAI launches. No spam, ever.</p>
             </form>
           ) : (
             <motion.div
@@ -136,7 +136,7 @@ export default function WaitlistPage() {
             >
               <CheckCircle2 className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-foreground mb-2">You're on the list!</h3>
-              <p className="text-foreground-muted">Check your email for updates about LinguoAI's launch.</p>
+              <p className="text-foreground-muted">Check your email for updates about DetectorAI's launch.</p>
             </motion.div>
           )}
         </motion.div>
@@ -263,12 +263,12 @@ export default function WaitlistPage() {
           <div className="space-y-4">
             {[
               {
-                q: "When will LinguoAI launch?",
+                q: "When will DetectorAI launch?",
                 a: "We're targeting launch in a few months. Join the waitlist for exclusive early access!",
               },
               {
                 q: "Will there be a free tier?",
-                a: "Yes, LinguoAI will offer a free tier with basic features and premium plans for advanced capabilities.",
+                a: "Yes, DetectorAI will offer a free tier with basic features and premium plans for advanced capabilities.",
               },
               {
                 q: "Can I share access with my team?",
@@ -297,7 +297,7 @@ export default function WaitlistPage() {
       {/* Footer */}
       <footer className="border-t border-border mt-20 py-12 bg-surface/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-foreground-muted text-sm">
-          <p>&copy; 2025 LinguoAI. All rights reserved.</p>
+          <p>&copy; 2025 DetectorAI. All rights reserved.</p>
         </div>
       </footer>
     </div>

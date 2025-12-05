@@ -9,25 +9,25 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://detectorai.me"
 export const metadata: Metadata = {
   title: {
     default:
-      "LinguoAI — Best AI Writing Assistant for Grammar, Tone, and Clarity",
-    template: "%s | LinguoAI",
+      "DetectorAI — Best AI Writing Assistant for Grammar, Tone, and Clarity",
+    template: "%s | DetectorAI",
   },
   description:
-    "LinguoAI is a premium AI writing assistant that refines grammar, enhances tone, and perfects writing clarity. Powered by cutting-edge natural language AI, it’s ideal for students, professionals, and content creators. Write flawless essays, blogs, and emails with precision and confidence.",
+    "DetectorAI is a premium AI writing assistant that refines grammar, enhances tone, and perfects writing clarity. Powered by cutting-edge natural language AI, it’s ideal for students, professionals, and content creators. Write flawless essays, blogs, and emails with precision and confidence.",
   keywords:
-    "LinguoAI, AI writing assistant, grammar checker, AI grammar correction, tone improvement, sentence rewriter, AI content detector, Grammarly alternative, writing enhancement, style editor, academic writing assistant, AI paraphrasing tool, professional writing tool, essay rewriter, content clarity, blog writing tool, AI detector, writing optimizer, writing assistant software, AI writing enhancement, grammar correction app, AI writing generator, SEO writing assistant, tone corrector, text improvement software",
-  authors: [{ name: "LinguoAI Team", url: "https://detectorai.me" }],
-  creator: "LinguoAI",
-  publisher: "LinguoAI",
+    "DetectorAI, AI writing assistant, grammar checker, AI grammar correction, tone improvement, sentence rewriter, AI content detector, Grammarly alternative, writing enhancement, style editor, academic writing assistant, AI paraphrasing tool, professional writing tool, essay rewriter, content clarity, blog writing tool, AI detector, writing optimizer, writing assistant software, AI writing enhancement, grammar correction app, AI writing generator, SEO writing assistant, tone corrector, text improvement software",
+  authors: [{ name: "DetectorAI Team", url: "https://detectorai.me" }],
+  creator: "DetectorAI",
+  publisher: "DetectorAI",
   metadataBase: new URL(SITE_URL),
   alternates: { canonical: "https://detectorai.me" },
   openGraph: {
     title:
-      "LinguoAI — AI Writing Assistant for Perfect Grammar, Tone, and Clarity",
+      "DetectorAI — AI Writing Assistant for Perfect Grammar, Tone, and Clarity",
     description:
-      "Elevate your writing with LinguoAI. Perfect grammar, tone, and style instantly using our advanced AI writing correction engine.",
+      "Elevate your writing with DetectorAI. Perfect grammar, tone, and style instantly using our advanced AI writing correction engine.",
     url: "https://detectorai.me",
-    siteName: "LinguoAI",
+    siteName: "DetectorAI",
     locale: "en_US",
     type: "website",
     images: [
@@ -35,24 +35,24 @@ export const metadata: Metadata = {
         url: "https://detectorai.me/logo.png",
         width: 1200,
         height: 630,
-        alt: "LinguoAI - Advanced AI Writing Assistant",
+        alt: "DetectorAI - Advanced AI Writing Assistant",
       },
       {
         url: "https://detectorai.me/banner.png",
         width: 1920,
         height: 1080,
-        alt: "LinguoAI Web App - Grammar & Tone Enhancer",
+        alt: "DetectorAI Web App - Grammar & Tone Enhancer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@linguoai",
-    creator: "@linguoai",
+    site: "@DetectorAI",
+    creator: "@DetectorAI",
     title:
-      "LinguoAI — Write Smarter with AI | Grammar Checker & Tone Enhancer",
+      "DetectorAI — Write Smarter with AI | Grammar Checker & Tone Enhancer",
     description:
-      "Boost your writing instantly with LinguoAI — the AI-powered tool that perfects grammar, refines tone, and enhances clarity.",
+      "Boost your writing instantly with DetectorAI — the AI-powered tool that perfects grammar, refines tone, and enhances clarity.",
     images: ["https://detectorai.me/logo.png"],
   },
   robots: {
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   category: "software",
   classification:
     "AI writing assistant, grammar correction tool, tone and clarity improvement software, AI content detection",
-  applicationName: "LinguoAI - Premium AI Writing Assistant",
+  applicationName: "DetectorAI - Premium AI Writing Assistant",
   referrer: "origin-when-cross-origin",
 }
 
@@ -84,7 +84,7 @@ export default function RootLayout({
         {/* Essential Meta */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
-        <meta name="author" content="LinguoAI Team" />
+        <meta name="author" content="DetectorAI Team" />
         <link rel="icon" href="/logo.png" sizes="any" />
         <link rel="apple-touch-icon" href="/logo.png" />
 
@@ -98,17 +98,17 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "@id": "https://detectorai.me/#organization",
-                  name: "LinguoAI",
+                  name: "DetectorAI",
                   url: "https://detectorai.me",
                   logo: "https://detectorai.me/logo.png",
                   sameAs: [
-                    "https://twitter.com/linguoai",
-                    "https://linkedin.com/company/linguoai",
-                    "https://facebook.com/linguoai",
-                    "https://instagram.com/linguoai",
+                    "https://twitter.com/DetectorAI",
+                    "https://linkedin.com/company/DetectorAI",
+                    "https://facebook.com/DetectorAI",
+                    "https://instagram.com/DetectorAI",
                   ],
                   description:
-                    "LinguoAI is an advanced AI writing assistant that enhances grammar, tone, and clarity for professional and academic writing.",
+                    "DetectorAI is an advanced AI writing assistant that enhances grammar, tone, and clarity for professional and academic writing.",
                   contactPoint: [
                     {
                       "@type": "ContactPoint",
@@ -122,7 +122,7 @@ export default function RootLayout({
                   "@type": "WebSite",
                   "@id": "https://detectorai.me/#website",
                   url: "https://detectorai.me",
-                  name: "LinguoAI - AI Writing Assistant",
+                  name: "DetectorAI - AI Writing Assistant",
                   potentialAction: {
                     "@type": "SearchAction",
                     target: "https://detectorai.me/search?q={search_term_string}",
@@ -133,7 +133,7 @@ export default function RootLayout({
                 {
                   "@type": "SoftwareApplication",
                   "@id": "https://detectorai.me/#app",
-                  name: "LinguoAI",
+                  name: "DetectorAI",
                   operatingSystem:
                     "Web, Windows, macOS, Android, iOS, ChromeOS",
                   applicationCategory:
@@ -142,7 +142,7 @@ export default function RootLayout({
                   url: "https://detectorai.me",
                   image: "https://detectorai.me/logo.png",
                   description:
-                    "LinguoAI refines your writing with powerful AI. It corrects grammar, improves tone, rewrites sentences, and enhances clarity for essays, blogs, and emails.",
+                    "DetectorAI refines your writing with powerful AI. It corrects grammar, improves tone, rewrites sentences, and enhances clarity for essays, blogs, and emails.",
                   featureList: [
                     "AI grammar correction",
                     "Tone and style optimization",
@@ -174,38 +174,38 @@ export default function RootLayout({
                   mainEntity: [
                     {
                       "@type": "Question",
-                      name: "What is LinguoAI?",
+                      name: "What is DetectorAI?",
                       acceptedAnswer: {
                         "@type": "Answer",
                         text:
-                          "LinguoAI is an AI-powered writing assistant that improves grammar, tone, and clarity using advanced natural language models.",
+                          "DetectorAI is an AI-powered writing assistant that improves grammar, tone, and clarity using advanced natural language models.",
                       },
                     },
                     {
                       "@type": "Question",
-                      name: "Is LinguoAI free?",
+                      name: "Is DetectorAI free?",
                       acceptedAnswer: {
                         "@type": "Answer",
                         text:
-                          "Yes. LinguoAI offers a free plan with AI grammar and tone enhancement, plus premium plans for advanced features.",
+                          "Yes. DetectorAI offers a free plan with AI grammar and tone enhancement, plus premium plans for advanced features.",
                       },
                     },
                     {
                       "@type": "Question",
-                      name: "Can LinguoAI detect AI-generated content?",
+                      name: "Can DetectorAI detect AI-generated content?",
                       acceptedAnswer: {
                         "@type": "Answer",
                         text:
-                          "Yes, LinguoAI includes an AI content detector to analyze and identify AI-generated text with precision.",
+                          "Yes, DetectorAI includes an AI content detector to analyze and identify AI-generated text with precision.",
                       },
                     },
                     {
                       "@type": "Question",
-                      name: "Who can use LinguoAI?",
+                      name: "Who can use DetectorAI?",
                       acceptedAnswer: {
                         "@type": "Answer",
                         text:
-                          "LinguoAI is built for writers, students, content creators, marketers, and professionals who want flawless, human-like writing.",
+                          "DetectorAI is built for writers, students, content creators, marketers, and professionals who want flawless, human-like writing.",
                       },
                     },
                   ],

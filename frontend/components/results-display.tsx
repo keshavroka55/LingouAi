@@ -45,7 +45,7 @@ export default function ResultsDisplay({ analysis, text, options }: ResultsDispl
 
   const generatePlainTextReport = () => {
     return `
-LinguoAI Report - ${new Date().toLocaleString()}
+DetectorAI Report - ${new Date().toLocaleString()}
 
 Grammar Issues: ${analysis.grammarIssues}
 Style Suggestions: ${analysis.styleSuggestions}

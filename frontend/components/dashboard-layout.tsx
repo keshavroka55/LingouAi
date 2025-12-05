@@ -50,7 +50,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary rounded-lg flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-foreground">LinguoAI</span>
+              <span className="font-bold text-foreground">DetectorAI</span>
             </Link>
 
             <div className="flex items-center gap-4">

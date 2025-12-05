@@ -51,7 +51,7 @@ export default function HelpPage() {
           <div className="card-premium text-center">
             <Mail className="w-8 h-8 text-primary mx-auto mb-2" />
             <h3 className="font-semibold text-foreground mb-1">Email Support</h3>
-            <p className="text-sm text-foreground-muted">support@linguoai.com</p>
+            <p className="text-sm text-foreground-muted">support@DetectorAI.com</p>
           </div>
         </div>
 

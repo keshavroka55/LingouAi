@@ -31,7 +31,7 @@ export default function TermsPage() {
               {
                 title: "1. Acceptance of Terms",
                 content:
-                  "By accessing and using LinguoAI, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.",
+                  "By accessing and using DetectorAI, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.",
               },
               {
                 title: "2. User Accounts",
@@ -46,12 +46,12 @@ export default function TermsPage() {
               {
                 title: "4. Intellectual Property",
                 content:
-                  "Content on the service is the property of LinguoAI or its content suppliers and is protected by international copyright laws. The compilation of all content on this service is the exclusive property of LinguoAI.",
+                  "Content on the service is the property of DetectorAI or its content suppliers and is protected by international copyright laws. The compilation of all content on this service is the exclusive property of DetectorAI.",
               },
               {
                 title: "5. Disclaimer of Warranties",
                 content:
-                  "The service is provided on an 'as is' basis. LinguoAI makes no representations or warranties of any kind, express or implied, as to the operation of the service or the information, content, or materials included on the service.",
+                  "The service is provided on an 'as is' basis. DetectorAI makes no representations or warranties of any kind, express or implied, as to the operation of the service or the information, content, or materials included on the service.",
               },
             ].map((section, index) => (
               <motion.div

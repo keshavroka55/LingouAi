@@ -5,7 +5,7 @@ import DashboardSidebar from "@/components/dashboard-sidebar"
 export const metadata: Metadata = {
   title: {
     default: "Dashboard",
-    template: "%s | LinguoAI",
+    template: "%s | DetectorAI",
   },
   robots: {
     index: false,

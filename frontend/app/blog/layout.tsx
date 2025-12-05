@@ -4,10 +4,10 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: {
     default: "Blog — Writing Tips & AI Insights",
-    template: "%s | LinguoAI",
+    template: "%s | DetectorAI",
   },
   description:
-    "Read articles on AI writing, grammar, tone, clarity, and productivity from the LinguoAI team.",
+    "Read articles on AI writing, grammar, tone, clarity, and productivity from the DetectorAI team.",
   alternates: { canonical: "/blog" },
 }
 

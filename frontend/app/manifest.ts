@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "LinguoAI",
-    short_name: "LinguoAI",
+    name: "DetectorAI",
+    short_name: "DetectorAI",
     description:
       "AI writing assistant for grammar, tone, and clarity.",
     start_url: "/",

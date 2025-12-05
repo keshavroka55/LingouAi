@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
 
 function generateTextContent(text: string, analysis: Record<string, unknown>): string {
   return `
-LinguoAI Analysis Report
+DetectorAI Analysis Report
 Generated: ${new Date().toLocaleString()}
 
 ORIGINAL TEXT:

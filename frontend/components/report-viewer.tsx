@@ -62,7 +62,7 @@ export default function ReportViewer({ analysis, text }: ReportViewerProps) {
 
   const generatePlainTextReport = () => {
     return `
-LinguoAI Report - ${new Date().toLocaleString()}
+DetectorAI Report - ${new Date().toLocaleString()}
 
 Grammar Issues: ${analysis.grammarIssues}
 Style Suggestions: ${analysis.styleSuggestions}
