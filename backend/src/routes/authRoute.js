@@ -1,4 +1,5 @@
 const express = require("express");
+const { authenticateUser } = require('../middleware/authMiddleware');
 const { register, login, getAllUsers, getAttempts } = require("../controllers/authController");
 const router = express.Router();
 
@@ -10,6 +11,6 @@ router.post("/login", login);
 
 router.get("/getallusers", getAllUsers);
 
-router.get("/credits", getAttempts)
+router.get("/credits",authenticateUser, getAttempts)
 
 module.exports = router;

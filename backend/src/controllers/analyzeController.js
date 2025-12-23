@@ -8,7 +8,9 @@ const analyzeText = async (req, res) => {
   try {
     const { options, text } = req.body;
     if (!text || !options || options.length === 0) {
-      return res.status(400).json({ error: "Missing text or analysis options" });
+      return res
+        .status(400)
+        .json({ error: "Missing text or analysis options" });
     }
 
     const analysis = await performAnalysis(text, options);
@@ -27,51 +29,55 @@ const analyzeText = async (req, res) => {
 async function performAnalysis(text, options) {
   try {
     const wordCount = text.trim().split(/\s+/).filter(Boolean).length;
-    const sentenceCount = text.split(/[.!?]+/).filter((s) => s.trim()).length || 1;
+    const sentenceCount =
+      text.split(/[.!?]+/).filter((s) => s.trim()).length || 1;
     const avgWordsPerSentence = Math.round(wordCount / sentenceCount);
 
-    const readabilityScore = calculateReadabilityScore(text, wordCount, sentenceCount)
+    const readabilityScore = calculateReadabilityScore(
+      text,
+      wordCount,
+      sentenceCount
+    );
 
     // Count issues based on selected options
     const grammarIssues = await countGrammarIssues(text);
-    let styleSuggestions = 0
+    let styleSuggestions = 0;
 
-    const issues = []
-
+    const issues = [];
 
     // 🧩 Run each analysis based on user options
     if (options.includes("grammar")) {
       for (let i = 0; i < Math.min(grammarIssues, 5); i++) {
-      issues.push({
-        type: "Grammar",
-        message: await getGrammarIssues(),
-        position: Math.floor(Math.random() * text.length),
-        severity: ["low", "medium", "high"][Math.floor(Math.random() * 3)],
-      })
-    }
+        issues.push({
+          type: "Grammar",
+          message: await getGrammarIssues(),
+          position: Math.floor(Math.random() * text.length),
+          severity: ["low", "medium", "high"][Math.floor(Math.random() * 3)],
+        });
+      }
     }
 
     if (options.includes("readability")) {
       if (avgWordsPerSentence > 20) {
-      issues.push({
-        type: "Readability",
-        message: "Consider breaking long sentences into shorter ones",
-        position: 0,
-        severity: "medium",
-      })
-    }
+        issues.push({
+          type: "Readability",
+          message: "Consider breaking long sentences into shorter ones",
+          position: 0,
+          severity: "medium",
+        });
+      }
     }
 
     if (options.includes("tone")) {
-      styleSuggestions = Math.floor(Math.random() * 12) + 2
+      styleSuggestions = Math.floor(Math.random() * 12) + 2;
       for (let i = 0; i < Math.min(styleSuggestions, 4); i++) {
-      issues.push({
-        type: "Style",
-        message:  detectTone(text),
-        position: Math.floor(Math.random() * text.length),
-        severity: "medium",
-      })
-    }
+        issues.push({
+          type: "Style",
+          message: detectTone(text),
+          position: Math.floor(Math.random() * text.length),
+          severity: "medium",
+        });
+      }
     }
 
     if (options.includes("paraphrase")) {
@@ -80,35 +86,47 @@ async function performAnalysis(text, options) {
         message: await paraphraseText(text),
         position: Math.floor(Math.random() * text.length),
         severity: "low",
-      })
-    }
-
-    if (options.includes("plagiarism")) {
-      results.plagiarism = await checkPlagiarism(text);
+      });
     }
 
     if (options.includes("ai-detect")) {
-      const humanScore = await detectAIContent(text); // 0-30% AI-generated probability
-      const aiScore = 100 - humanScore;
-      if (aiScore > 15) {
+      const response = await fetch("http://localhost:8000/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          text: text,
+          threshold: 0.5,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("AI detection service failed");
+      }
+
+      const data = await response.json();
+
+      const aiScore = Math.round(data.probability * 100);
+      const humanScore = 100 - aiScore;
+
+      if (aiScore) {
         issues.push({
           type: "AI Detection",
           message: `${aiScore}% probability of AI-generated content. Consider humanizing it.`,
           position: 0,
           severity: "medium",
-        })
-    }
+        });
+      }
     }
 
-      return {
-        grammarIssues,
-        styleSuggestions,
-        readabilityScore,
-        wordCount,
-        sentenceCount,
-        avgWordsPerSentence,
-        issues: issues,
-      };
+    return {
+      grammarIssues,
+      styleSuggestions,
+      readabilityScore,
+      wordCount,
+      sentenceCount,
+      avgWordsPerSentence,
+      issues: issues,
+    };
   } catch (err) {
     throw err;
   }
@@ -117,7 +135,7 @@ async function performAnalysis(text, options) {
 async function countGrammarIssues(text) {
   // fallback if no API key
   if (!DEEPSEEK_API_KEY) {
-    return "429 Error"
+    return "429 Error";
   }
 
   try {
@@ -127,7 +145,7 @@ async function countGrammarIssues(text) {
         {
           role: "system",
           content:
-            "You are a grammar checker. Read the user's text and **only output the number of grammar issues** in the text. Do not include any explanation or corrected text. Respond with a single integer number."
+            "You are a grammar checker. Read the user's text and **only output the number of grammar issues** in the text. Do not include any explanation or corrected text. Respond with a single integer number.",
         },
         {
           role: "user",
@@ -137,12 +155,16 @@ async function countGrammarIssues(text) {
       temperature: 0.3,
     };
 
-    const response = await axios.post("https://openrouter.ai/api/v1/chat/completions", payload, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${DEEPSEEK_API_KEY}`,
-      },
-    });
+    const response = await axios.post(
+      "https://openrouter.ai/api/v1/chat/completions",
+      payload,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${DEEPSEEK_API_KEY}`,
+        },
+      }
+    );
 
     const raw = response.data?.choices?.[0]?.message?.content || "";
     // Try to parse JSON, or return raw as corrected text
@@ -164,7 +186,7 @@ async function countGrammarIssues(text) {
 async function getGrammarIssues(text) {
   // fallback if no API key
   if (!DEEPSEEK_API_KEY) {
-    return "429 Error"
+    return "429 Error";
   }
 
   try {
@@ -173,7 +195,8 @@ async function getGrammarIssues(text) {
       messages: [
         {
           role: "system",
-          content:"You are a grammar checker. Read the user's text and return grammar issues and suggestions in JSON format with keys: 'issues' (array of detected problems) and 'corrected' (the improved text). Explain in short"
+          content:
+            "You are a grammar checker. Read the user's text and return grammar issues and suggestions in JSON format with keys: 'issues' (array of detected problems) and 'corrected' (the improved text). Explain in short",
         },
         {
           role: "user",
@@ -183,12 +206,16 @@ async function getGrammarIssues(text) {
       temperature: 0.3,
     };
 
-    const response = await axios.post("https://openrouter.ai/api/v1/chat/completions", payload, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${DEEPSEEK_API_KEY}`,
-      },
-    });
+    const response = await axios.post(
+      "https://openrouter.ai/api/v1/chat/completions",
+      payload,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${DEEPSEEK_API_KEY}`,
+        },
+      }
+    );
 
     const raw = response.data?.choices?.[0]?.message?.content || "";
     // Try to parse JSON, or return raw as corrected text
@@ -200,15 +227,15 @@ async function getGrammarIssues(text) {
 
 function calculateReadabilityScore(text, wordCount, sentenceCount) {
   // Flesch-Kincaid style simplified scoring
-  if (wordCount === 0 || sentenceCount === 0) return 0
+  if (wordCount === 0 || sentenceCount === 0) return 0;
 
-  const avgSentenceLength = wordCount / sentenceCount
-  const syllablesPerWord = estimateSyllables(text) / wordCount
+  const avgSentenceLength = wordCount / sentenceCount;
+  const syllablesPerWord = estimateSyllables(text) / wordCount;
 
-  let score = 206.835 - 1.015 * avgSentenceLength - 84.6 * syllablesPerWord
-  score = Math.max(0, Math.min(100, Math.round(score)))
+  let score = 206.835 - 1.015 * avgSentenceLength - 84.6 * syllablesPerWord;
+  score = Math.max(0, Math.min(100, Math.round(score)));
 
-  return score
+  return score;
 }
 
 function estimateSyllables(text) {
@@ -228,8 +255,8 @@ function detectTone(text) {
     "Word repetition detected in this paragraph",
     "Consider a more formal/informal tone",
     "Inconsistent style with rest of document",
-  ]
-  return suggestions[Math.floor(Math.random() * suggestions.length)]
+  ];
+  return suggestions[Math.floor(Math.random() * suggestions.length)];
 }
 
 // ✍️ Paraphrasing (DeepSeek or fallback simple synonym shuffle)
@@ -242,27 +269,41 @@ async function paraphraseText(text) {
     const payload = {
       model: "deepseek/deepseek-r1-0528-qwen3-8b:free",
       messages: [
-        { role: "system", content: "Paraphrase the given text clearly and naturally." },
+        {
+          role: "system",
+          content: "Paraphrase the given text clearly and naturally.",
+        },
         { role: "user", content: text },
       ],
     };
 
-    const response = await axios.post("https://openrouter.ai/api/v1/chat/completions", payload, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${DEEPSEEK_API_KEY}`,
-      },
-    });
+    const response = await axios.post(
+      "https://openrouter.ai/api/v1/chat/completions",
+      payload,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${DEEPSEEK_API_KEY}`,
+        },
+      }
+    );
 
-    const output = response.data?.choices?.[0]?.message?.content || "Failed to paraphrase.";
+    const output =
+      response.data?.choices?.[0]?.message?.content || "Failed to paraphrase.";
     return output;
   } catch (err) {
-    return { paraphrased: simpleParaphrase(text), source: "fallback", error: err.message };
+    return {
+      paraphrased: simpleParaphrase(text),
+      source: "fallback",
+      error: err.message,
+    };
   }
 }
 
 function simpleParaphrase(text) {
-  return text.replace(/\bimportant\b/g, "significant").replace(/\bgood\b/g, "great");
+  return text
+    .replace(/\bimportant\b/g, "significant")
+    .replace(/\bgood\b/g, "great");
 }
 
 // 🔍 Plagiarism check (optional free API)
