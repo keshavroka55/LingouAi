@@ -22,9 +22,8 @@ export default function QuickStats() {
       },
       cache: "no-store",
     });
-
     if (!res.ok) throw new Error("Failed to fetch credits");
-
+    
     const data = await res.json();
     return data.attempts ?? 0;
   } catch (err) {

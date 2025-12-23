@@ -1,44 +1,71 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
-import { Sparkles, LogOut, Settings, BarChart3 } from "lucide-react"
-import Link from "next/link"
-import MobileMenu from "@/components/mobile-menu"
+import type React from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Sparkles, LogOut, Settings, BarChart3 } from "lucide-react";
+import Link from "next/link";
+import MobileMenu from "@/components/mobile-menu";
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const router = useRouter()
-  const [user, setUser] = useState<{ email: string; name: string } | null>(null)
-  const [credits, setCredits] = useState(0)
-  const [isLoading, setIsLoading] = useState(true)
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const router = useRouter();
+  const [user, setUser] = useState<{ email: string; name: string } | null>(
+    null
+  );
+  const [credits, setCredits] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const userData = localStorage.getItem("user")
-    const creditsData = localStorage.getItem("credits")
-
-    if (!userData) {
-      router.push("/auth/login")
-      return
+    const userData = localStorage.getItem("user");
+    const fetchCredit = async () => {
+      const credits = await getCredits();
+      setCredits(credits);
     }
 
-    setUser(JSON.parse(userData))
-    setCredits(Number.parseInt(creditsData || "0", 10))
-    setIsLoading(false)
-  }, [router])
+    if (!userData) {
+      router.push("/auth/login");
+      return;
+    }
+
+    setUser(JSON.parse(userData));
+    fetchCredit();
+    setIsLoading(false);
+  }, [router]);
 
   const handleLogout = () => {
-    localStorage.removeItem("user")
-    localStorage.removeItem("credits")
-    router.push("/")
-  }
+    localStorage.removeItem("user");
+    localStorage.removeItem("credits");
+    router.push("/");
+  };
+
+  const getCredits = async () => {
+    try {
+      const res = await fetch("http://localhost:9000/api/v1/auth/credits", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token") || ""}`,
+        },
+        cache: "no-store",
+      });
+      if (!res.ok) throw new Error("Failed to fetch credits");
+
+      const data = await res.json();
+      return data.attempts ?? 0;
+    } catch (err) {
+      console.error("Error fetching credit:", err);
+      return null;
+    }
+  };
 
   if (isLoading) {
     return (
       <div className="min-h-screen bg-surface flex items-center justify-center">
         <div className="text-foreground-muted">Loading...</div>
       </div>
-    )
+    );
   }
 
   return (
@@ -60,7 +87,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   Credits: <span className="text-primary">{credits}</span>
                 </span>
               </div>
-              <button className="p-2 hover:bg-surface rounded-lg transition-colors" title="Settings">
+              <button
+                className="p-2 hover:bg-surface rounded-lg transition-colors"
+                title="Settings"
+              >
                 <Settings className="w-5 h-5 text-foreground-muted" />
               </button>
               <button
@@ -76,7 +106,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">{children}</main>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {children}
+      </main>
     </div>
-  )
+  );
 }

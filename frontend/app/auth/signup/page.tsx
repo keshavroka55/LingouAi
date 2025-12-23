@@ -47,11 +47,10 @@ export default function SignupPage() {
 
       if (response.ok) {
         // Example: backend returns { token, user: { name, email } }
-        localStorage.setItem("token", data.token)
         localStorage.setItem("user", JSON.stringify(data.user))
         localStorage.setItem("credits", "10")
 
-        router.push("/dashboard")
+        router.push("/auth/login")
       } else {
         // If backend sends error message
         setError(data.message || "Signup failed, please try again")
